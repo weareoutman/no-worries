@@ -1,0 +1,34 @@
+{
+  "name": "no-worries",
+  "description": "Choose features of your new project, let NoWorries do the stuff, no worries!",
+  "repository": "weareoutman/no-worries",
+  "main": "src/index.js",
+  "bin": {
+    "no-worries": "./bin/no-worries.js"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.0.1",
+    "husky": "^3.0.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.0.2",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "inquirer": "^6.4.1",
+    "meow": "^5.0.0",
+    "ora": "^3.4.0"
+  },
+  "license": "MIT"
+}
