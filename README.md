@@ -4,6 +4,18 @@
 
 ![](assets/screenshot.png)
 
+## Install
+
+```bash
+npm install -g no-worries
+```
+
+## Usage
+
+```bash
+no-worries awesome-project
+```
+
 ## Features
 
 - [x] Babel
