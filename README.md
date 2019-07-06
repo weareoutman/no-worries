@@ -6,22 +6,22 @@
 
 ## Features
 
-- [x] babel
-- [x] editorConfig
-- [x] enzyme
-- [x] eslint
-- [x] husky
-- [x] jest
-- [ ] lerna
-- [x] lintStaged
-- [x] prettier
-- [x] react
-- [x] typescript
-- [ ] useWorkspaces
-- [ ] yarn
+- [x] Babel
+- [x] Editor Config
+- [x] Enzyme
+- [x] Eslint
+- [x] Husky
+- [x] Jest
+- [ ] Lerna
+- [x] Lint Staged
+- [x] Prettier
+- [x] React
+- [x] TypeScript
+- [ ] Yarn
+- [ ] Yarn Workspaces
 
 Maybe?
 
-- [ ] node
-- [ ] rollup
-- [ ] webpack
+- [ ] Bode
+- [ ] Rollup
+- [ ] Webpack
