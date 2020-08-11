@@ -2,7 +2,7 @@ const meow = require("meow");
 const chalk = require("chalk");
 const main = require("./main");
 
-module.exports = function() {
+module.exports = function () {
   const cli = meow(
     `
     Usage
@@ -18,21 +18,23 @@ module.exports = function() {
       flags: {
         dryRun: {
           type: "boolean",
-          alias: "d"
-        }
-      }
+          alias: "d",
+        },
+      },
     }
   );
 
-  if (cli.input.length !== 1 || Object.keys(cli.flags).length !== 2) {
+  console.log(cli);
+
+  if (cli.input.length !== 1 || Object.keys(cli.flags).length !== 1) {
     cli.showHelp();
     return;
   }
 
   main({
     input: cli.input[0],
-    dryRun: cli.flags.dryRun
-  }).catch(error => {
+    dryRun: cli.flags.dryRun,
+  }).catch((error) => {
     if (error.stack) {
       console.log(chalk.red(error.stack));
     } else {
