@@ -5,18 +5,18 @@ module.exports = function resolveLintstagedrc(flags) {
   const lintstagedrc = {};
   if (flags.prettier) {
     Object.assign(lintstagedrc, {
-      "*.{js,ts,jsx,tsx}": ["prettier --write", "git add"],
-      "*.css": ["prettier --write", "git add"],
-      "*.html": ["prettier --write", "git add"],
-      "*.md": ["prettier --write", "git add"],
-      "*.json": ["prettier --write", "git add"]
+      "*.{js,ts,jsx,tsx}": ["prettier --write"],
+      "*.css": ["prettier --write"],
+      "*.html": ["prettier --write"],
+      "*.md": ["prettier --write"],
+      "*.json": ["prettier --write"],
     });
     if (flags.eslint) {
       lintstagedrc["*.{js,ts,jsx,tsx}"].unshift("eslint --fix --quiet");
     }
   } else if (flags.eslint) {
     Object.assign(lintstagedrc, {
-      "*.{js,ts,jsx,tsx}": ["eslint --fix --quiet", "git add"]
+      "*.{js,ts,jsx,tsx}": ["eslint --fix --quiet"],
     });
   }
   if (Object.keys(lintstagedrc).length === 0) {

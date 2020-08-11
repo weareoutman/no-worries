@@ -34,6 +34,6 @@ no-worries awesome-project
 
 Maybe?
 
-- [ ] Bode
+- [ ] Node
 - [ ] Rollup
 - [ ] Webpack
