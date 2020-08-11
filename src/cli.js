@@ -24,8 +24,6 @@ module.exports = function () {
     }
   );
 
-  console.log(cli);
-
   if (cli.input.length !== 1 || Object.keys(cli.flags).length !== 1) {
     cli.showHelp();
     return;
