@@ -6,14 +6,16 @@ module.exports = function resolveJestConfigJs(flags) {
   if (flags.babel) {
     Object.assign(jestConfigJs, {
       transform: {
-        "^.+\\.[t|j]sx?$": "babel-jest"
-      }
+        "^.+\\.[t|j]sx?$": "babel-jest",
+      },
+      collectCoverage: true,
+      coverageDirectory: "<rootDir>/.coverage",
     });
   }
   if (flags.enzyme) {
     Object.assign(jestConfigJs, {
       setupFilesAfterEnv: ["<rootDir>/__jest__/setup.js"],
-      snapshotSerializers: ["enzyme-to-json/serializer"]
+      snapshotSerializers: ["enzyme-to-json/serializer"],
     });
   }
   if (Object.keys(jestConfigJs).length === 0) {
