@@ -2,17 +2,19 @@ const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
 const resolvePackageJson = require("./resolvePackageJson");
+const getPrettierContent = require("./getPrettierContent");
 
 module.exports = function initDir(context, flags) {
-  const packageJson = JSON.stringify(
-    resolvePackageJson(
-      {
-        name: context.packageName
-      },
-      flags
+  const packageJson = getPrettierContent(
+    JSON.stringify(
+      resolvePackageJson(
+        {
+          name: context.packageName,
+        },
+        flags
+      )
     ),
-    null,
-    2
+    "json"
   );
 
   console.log(chalk.green(`$ mkdir ${context.relativeDir}`));
