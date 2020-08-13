@@ -27,14 +27,14 @@
     "eslint": "^7.6.0",
     "husky": "^4.2.5",
     "jest": "^26.3.0",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5"
+    "lint-staged": "^10.2.11"
   },
   "dependencies": {
     "chalk": "^4.1.0",
     "inquirer": "^7.3.3",
     "meow": "^7.1.0",
-    "ora": "^5.0.0"
+    "ora": "^5.0.0",
+    "prettier": "^2.0.5"
   },
   "license": "MIT"
 }

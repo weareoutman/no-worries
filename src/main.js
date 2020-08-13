@@ -10,6 +10,7 @@ const resolveEslintrc = require("./resolveEslintrc");
 const resolveJestConfigJs = require("./resolveJestConfigJs");
 const resolveLintstagedrc = require("./resolveLintstagedrc");
 const resolveTemplates = require("./resolveTemplates");
+const getPrettierContent = require("./getPrettierContent");
 
 async function run(context, flags) {
   initDir(context, flags);
@@ -24,24 +25,36 @@ async function run(context, flags) {
 
   const babelrc = resolveBabelrc(flags);
   if (babelrc) {
-    files.push([".babelrc", JSON.stringify(babelrc, null, 2)]);
+    files.push([
+      ".babelrc",
+      getPrettierContent(JSON.stringify(babelrc), "json"),
+    ]);
   }
 
   const eslintrc = resolveEslintrc(flags);
   if (eslintrc) {
-    files.push([".eslintrc", JSON.stringify(eslintrc, null, 2)]);
+    files.push([
+      ".eslintrc",
+      getPrettierContent(JSON.stringify(eslintrc), "json"),
+    ]);
   }
 
   const lintstagedrc = resolveLintstagedrc(flags);
   if (lintstagedrc) {
-    files.push([".lintstagedrc", JSON.stringify(lintstagedrc, null, 2)]);
+    files.push([
+      ".lintstagedrc",
+      getPrettierContent(JSON.stringify(lintstagedrc), "json"),
+    ]);
   }
 
   const jestConfigJs = resolveJestConfigJs(flags);
   if (jestConfigJs) {
     files.push([
       "jest.config.js",
-      `module.exports = ${JSON.stringify(jestConfigJs, null, 2)};`
+      getPrettierContent(
+        `module.exports = ${JSON.stringify(jestConfigJs)};`,
+        "babel"
+      ),
     ]);
   }
 
@@ -70,7 +83,7 @@ module.exports = async function main({ input, dryRun }) {
   console.log();
 
   const context = {
-    dryRun: true
+    dryRun: true,
   };
   const cwd = process.cwd();
   context.absoluteDir = path.resolve(cwd, input);
@@ -87,24 +100,25 @@ module.exports = async function main({ input, dryRun }) {
 
   await run(context, flags);
 
-  if (!dryRun) {
-    const confirmed = await askConfirm();
-    if (confirmed) {
-      await run(
-        {
-          ...context,
-          dryRun: false
-        },
-        flags
-      );
-      console.log();
-      console.log(chalk.green("✨ Done. No worries!"));
-    } else {
-      console.log();
-      console.log(chalk.gray("No worries! Maybe next time."));
-    }
-  } else {
+  if (dryRun) {
     console.log();
     console.log(chalk.gray("No worries! It's just a dry run."));
+    return;
   }
+
+  const confirmed = await askConfirm();
+  if (!confirmed) {
+    console.log();
+    console.log(chalk.gray("No worries! Maybe next time."));
+  }
+
+  await run(
+    {
+      ...context,
+      dryRun: false,
+    },
+    flags
+  );
+  console.log();
+  console.log(chalk.green("✨ Done. No worries!"));
 };
