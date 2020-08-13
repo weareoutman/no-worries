@@ -7,12 +7,13 @@ module.exports = function resolveEslintrc(flags) {
     plugins: [],
     extends: ["eslint:recommended"],
     env: {
-      es6: true
+      es6: true,
     },
     parserOptions: {
       ecmaVersion: 9,
-      sourceType: "module"
-    }
+      sourceType: "module",
+    },
+    overrides: [],
   };
   if (flags.typescript) {
     eslintrc.parser = "@typescript-eslint/parser";
@@ -32,9 +33,19 @@ module.exports = function resolveEslintrc(flags) {
   }
   if (flags.jest) {
     eslintrc.env.jest = true;
+    eslintrc.overrides.push({
+      files: ["*.config.js"],
+      env: {
+        node: true,
+        browser: false,
+      },
+    });
   }
   if (eslintrc.plugins.length === 0) {
     delete eslintrc.plugins;
+  }
+  if (eslintrc.overrides.length === 0) {
+    delete eslintrc.overrides;
   }
   if (Object.keys(eslintrc.env).length === 0) {
     delete eslintrc.env;
