@@ -12,7 +12,9 @@ module.exports = function initDir(context, flags) {
           name: context.packageName,
         },
         flags
-      )
+      ),
+      null,
+      2
     ),
     "json"
   );

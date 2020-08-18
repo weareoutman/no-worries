@@ -5,66 +5,72 @@ async function askFeatures() {
   const choices = [
     {
       name: "Babel",
-      value: "babel"
+      value: "babel",
     },
     {
       name: "Editor Config",
-      value: "editorConfig"
+      value: "editorConfig",
     },
     {
       name: "Enzyme",
-      value: "enzyme"
+      value: "enzyme",
     },
     {
       name: "Eslint",
-      value: "eslint"
+      value: "eslint",
     },
     {
       name: "Husky",
-      value: "husky"
+      value: "husky",
     },
     {
       name: "Jest",
-      value: "jest"
+      value: "jest",
     },
     {
       name: "Lint Staged",
-      value: "lintStaged"
+      value: "lintStaged",
     },
     {
       name: "Prettier",
-      value: "prettier"
+      value: "prettier",
     },
     {
       name: "React",
-      value: "react"
+      value: "react",
+    },
+    {
+      name: "Standard Version",
+      value: "standardVersion",
     },
     {
       name: "TypeScript",
-      value: "typescript"
-    }
+      value: "typescript",
+    },
   ];
-  return (await inquirer.prompt({
-    type: "checkbox",
-    name: "features",
-    choices: choices,
-    pageSize: choices.length,
-    default: Object.entries(defaultFlags)
-      .filter(f => f[1])
-      .map(f => f[0])
-  })).features;
+  return (
+    await inquirer.prompt({
+      type: "checkbox",
+      name: "features",
+      choices: choices,
+      pageSize: choices.length,
+      default: defaultFlags,
+    })
+  ).features;
 }
 
 async function askConfirm() {
-  return (await inquirer.prompt({
-    type: "confirm",
-    name: "confirmed",
-    message: "Is it what you want?",
-    default: true
-  })).confirmed;
+  return (
+    await inquirer.prompt({
+      type: "confirm",
+      name: "confirmed",
+      message: "Is it what you want?",
+      default: true,
+    })
+  ).confirmed;
 }
 
 module.exports = {
   askFeatures,
-  askConfirm
+  askConfirm,
 };

@@ -22,5 +22,11 @@ module.exports = function resolveLintstagedrc(flags) {
   if (Object.keys(lintstagedrc).length === 0) {
     return;
   }
-  return lintstagedrc;
+  // Keep the configuration be simple.
+  return Object.fromEntries(
+    Object.entries(lintstagedrc).map(([key, value]) => [
+      key,
+      value.length === 1 ? value[0] : value,
+    ])
+  );
 };

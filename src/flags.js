@@ -1,18 +1,13 @@
-const defaultFlags = {
-  babel: true,
-  editorConfig: true,
-  enzyme: false,
-  eslint: true,
-  husky: true,
-  jest: true,
-  lerna: false,
-  lintStaged: true,
-  prettier: true,
-  react: false,
-  typescript: false,
-  useWorkspaces: false,
-  yarn: false
-};
+const defaultFlags = [
+  "babel",
+  "editorConfig",
+  "eslint",
+  "husky",
+  "jest",
+  "lintStaged",
+  "prettier",
+  "standardVersion",
+];
 
 const devDependencyRequiredFlags = {
   "@babel/core": "babel",
@@ -39,16 +34,17 @@ const devDependencyRequiredFlags = {
   lerna: "lerna",
   "lint-staged": "lintStaged",
   prettier: "prettier",
-  typescript: "typescript"
+  standardVersion: "standard-version",
+  typescript: "typescript",
 };
 
 const dependencyRequiredFlags = {
   react: "react",
-  "react-dom": "react"
+  "react-dom": "react",
 };
 
 module.exports = {
   defaultFlags,
   dependencyRequiredFlags,
-  devDependencyRequiredFlags
+  devDependencyRequiredFlags,
 };

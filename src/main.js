@@ -27,7 +27,7 @@ async function run(context, flags) {
   if (babelrc) {
     files.push([
       ".babelrc",
-      getPrettierContent(JSON.stringify(babelrc), "json"),
+      getPrettierContent(JSON.stringify(babelrc, null, 2), "json"),
     ]);
   }
 
@@ -35,7 +35,7 @@ async function run(context, flags) {
   if (eslintrc) {
     files.push([
       ".eslintrc",
-      getPrettierContent(JSON.stringify(eslintrc), "json"),
+      getPrettierContent(JSON.stringify(eslintrc, null, 2), "json"),
     ]);
   }
 
@@ -43,7 +43,7 @@ async function run(context, flags) {
   if (lintstagedrc) {
     files.push([
       ".lintstagedrc",
-      getPrettierContent(JSON.stringify(lintstagedrc), "json"),
+      getPrettierContent(JSON.stringify(lintstagedrc, null, 2), "json"),
     ]);
   }
 
@@ -52,7 +52,7 @@ async function run(context, flags) {
     files.push([
       "jest.config.js",
       getPrettierContent(
-        `module.exports = ${JSON.stringify(jestConfigJs)};`,
+        `module.exports = ${JSON.stringify(jestConfigJs, null, 2)};`,
         "babel"
       ),
     ]);
