@@ -1,6 +1,6 @@
 {
   "name": "no-worries",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Choose features of your new project, let NoWorries do the stuff, no worries!",
   "repository": "weareoutman/no-worries",
   "main": "src/index.js",

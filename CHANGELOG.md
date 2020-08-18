@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/weareoutman/no-worries/compare/v0.1.4...v0.1.5) (2020-08-18)
+
+### Bug Fixes
+
+- remove unused dependency of ora ([ee8f4a4](https://github.com/weareoutman/no-worries/commit/ee8f4a4988f5a8cb74b3d5a787f2435a221268c5))
+
 ### [0.1.4](https://github.com/weareoutman/no-worries/compare/v0.1.3...v0.1.4) (2020-08-18)
 
 ### Features
