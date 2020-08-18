@@ -110,6 +110,7 @@ module.exports = async function main({ input, dryRun }) {
   if (!confirmed) {
     console.log();
     console.log(chalk.gray("No worries! Maybe next time."));
+    return;
   }
 
   await run(
