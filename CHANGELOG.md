@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/weareoutman/no-worries/compare/v0.1.3...v0.1.4) (2020-08-18)
+
+### Features
+
+- use execa to pass through stdio stream ([4b6d764](https://github.com/weareoutman/no-worries/commit/4b6d7648f91ea76c90a2277f226e4dc5d543a792))
+
 ### [0.1.3](https://github.com/weareoutman/no-worries/compare/v0.1.2...v0.1.3) (2020-08-18)
 
 ### Bug Fixes
