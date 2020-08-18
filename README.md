@@ -6,13 +6,13 @@
 
 ## Install
 
-```bash
+```shell
 npm install -g no-worries
 ```
 
 ## Usage
 
-```bash
+```shell
 no-worries awesome-project
 ```
 
@@ -37,3 +37,11 @@ Maybe?
 - [ ] Node
 - [ ] Rollup
 - [ ] Webpack
+
+## Publish
+
+```shell
+npm run release
+git push --follow-tags origin master
+npm publish
+```
