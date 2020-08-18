@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/weareoutman/no-worries/compare/v0.1.5...v0.1.6) (2020-08-18)
+
+### Features
+
+- support to check standard-version ([a17ede1](https://github.com/weareoutman/no-worries/commit/a17ede135d134fc150f7424633f61601ab994bed))
+
 ### [0.1.5](https://github.com/weareoutman/no-worries/compare/v0.1.4...v0.1.5) (2020-08-18)
 
 ### Bug Fixes
