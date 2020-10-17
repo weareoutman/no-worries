@@ -20,18 +20,25 @@ module.exports = function () {
           type: "boolean",
           alias: "d",
         },
+        yarn: {
+          type: "boolean",
+        },
+        git: {
+          type: "boolean",
+          default: true,
+        },
       },
     }
   );
 
-  if (cli.input.length !== 1 || Object.keys(cli.flags).length !== 1) {
+  if (cli.input.length !== 1 || Object.keys(cli.flags).length !== 3) {
     cli.showHelp();
     return;
   }
 
   main({
     input: cli.input[0],
-    dryRun: cli.flags.dryRun,
+    flags: cli.flags,
   }).catch((error) => {
     if (error.stack) {
       console.log(chalk.red(error.stack));

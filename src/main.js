@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
 const chalk = require("chalk");
 const { askFeatures, askConfirm } = require("./ask");
@@ -11,9 +11,12 @@ const resolveJestConfigJs = require("./resolveJestConfigJs");
 const resolveLintstagedrc = require("./resolveLintstagedrc");
 const resolveTemplates = require("./resolveTemplates");
 const getPrettierContent = require("./getPrettierContent");
+const gitInit = require("./gitInit");
 
 async function run(context, flags) {
   initDir(context, flags);
+
+  await gitInit(context);
 
   const deps = resolveDependencies(flags);
   await npmInstall(context, deps, false);
@@ -66,13 +69,13 @@ async function run(context, flags) {
       console.log(content);
       console.log(chalk.gray("^Z"));
     } else {
-      fs.writeFileSync(path.join(context.absoluteDir, filename), content);
+      fs.outputFileSync(path.join(context.absoluteDir, filename), content);
       console.log(chalk.green("✔"));
     }
   });
 }
 
-module.exports = async function main({ input, dryRun }) {
+module.exports = async function main({ input, options }) {
   console.log(
     chalk.green(
       `✨ Choose features of your new project, let ${chalk.bold.italic(
@@ -82,8 +85,12 @@ module.exports = async function main({ input, dryRun }) {
   );
   console.log();
 
+  const { dryRun, yarn, git } = options;
+
   const context = {
     dryRun: true,
+    yarn,
+    git,
   };
   const cwd = process.cwd();
   context.absoluteDir = path.resolve(cwd, input);

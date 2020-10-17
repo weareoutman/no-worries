@@ -6,18 +6,30 @@ module.exports = function npmInstall(context, deps, dev = false) {
     return;
   }
 
-  const args = ["install"];
-  if (dev) {
-    args.push("--save-dev");
+  let cmd = "npm";
+  const args = [];
+
+  if (context.yarn) {
+    cmd = "yarn";
+    args.push("add");
+    if (dev) {
+      args.push("-D");
+    }
+  } else {
+    args.push("install");
+    if (dev) {
+      args.push("--save-dev");
+    }
   }
+
   args.push(...deps);
 
-  console.log(chalk.green(`$ npm ${args.join(" ")}`));
+  console.log(chalk.green(`$ ${cmd} ${args.join(" ")}`));
   if (context.dryRun) {
     return;
   }
 
-  return execa("npm", args, {
+  return execa(cmd, args, {
     cwd: context.absoluteDir,
     stdio: "inherit",
   });

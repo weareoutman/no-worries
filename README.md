@@ -28,8 +28,9 @@ no-worries awesome-project
 - [x] Lint Staged
 - [x] Prettier
 - [x] React
+- [x] Standard Version
 - [x] TypeScript
-- [ ] Yarn
+- [x] Yarn
 - [ ] Yarn Workspaces
 
 Maybe?
