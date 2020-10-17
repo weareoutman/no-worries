@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/weareoutman/no-worries/compare/v0.1.6...v0.1.7) (2020-10-17)
+
+### Features
+
+- support yarn and git init ([34dcdab](https://github.com/weareoutman/no-worries/commit/34dcdab989aa8469f884ee00319e27cebc315db3))
+
 ### [0.1.6](https://github.com/weareoutman/no-worries/compare/v0.1.5...v0.1.6) (2020-08-18)
 
 ### Features
