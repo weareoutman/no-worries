@@ -38,7 +38,7 @@ module.exports = function () {
 
   main({
     input: cli.input[0],
-    flags: cli.flags,
+    options: cli.flags,
   }).catch((error) => {
     if (error.stack) {
       console.log(chalk.red(error.stack));
